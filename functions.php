@@ -194,7 +194,8 @@ add_filter('widget_text','do_shortcode');
 function drs_scripts() {
         // STYLES
         wp_enqueue_style( 'Main_Style', get_stylesheet_uri() );
-        wp_enqueue_style( 'Font_Awesome', get_template_directory_uri() . '/css/font-awesome.min.css' );
+        // wp_enqueue_style( 'Font_Awesome-css', get_template_directory_uri() . '/css/font-awesome.min.css' );
+        wp_enqueue_style( 'Font_Awesome-5-css', 'https://use.fontawesome.com/releases/v5.0.13/css/all.css' );
         wp_enqueue_style( 'MDB', get_template_directory_uri() . '/css/mdb5/mdb.min.css' );
         wp_enqueue_style( 'custom-old-styles-css', get_template_directory_uri() . '/css/custom-style-old.css' );
         wp_enqueue_style( 'Style', get_template_directory_uri() . '/css/style.css' );
@@ -204,6 +205,7 @@ function drs_scripts() {
         // SCRIPTS
         wp_enqueue_script( 'MDB', get_template_directory_uri() . '/js/mdb5/mdb.min.js', array(), '1.0.0', true );
         wp_enqueue_script( 'Script', get_template_directory_uri() . '/js/script.js', array('jquery', 'jSP', 'jMW'), '1.0.0', true );
+        wp_enqueue_script( 'Font_Awesome-5-js', 'https://use.fontawesome.com/releases/v5.0.13/js/all.js', array(), '1.0.0', true );
 		
 
         if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {

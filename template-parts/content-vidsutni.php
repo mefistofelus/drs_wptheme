@@ -6,9 +6,9 @@ $link=mysqli_connect("localhost", "root", "root", "vids-login");
 if(isset($_GET['register']) && $_GET['register']=='yes')
 {
 echo <<<register
-<div class="modal-content">
+<div class="modal-content" style="max-width: 65%; margin: 0 auto;">
             <div class="modal-header">
-                <h5 class="modal-title text-primary" id="exampleModalLabel">Реєстрація в системі</h5>
+                <h5 class="modal-title text-dark" id="exampleModalLabel">Реєстрація в системі</h5>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
@@ -43,8 +43,8 @@ echo <<<register
                     </div>
                 </div>
                 <div class="modal-footer justify-content-center">
-                    <i class="fab fa-telegram-plane"></i>
 					<button name="submit" type="submit" class="btn btn-info">
+                        <i class="fas fa-user-plus mr-1"></i>
                     Зареєструватися</button>
 					
                     
@@ -104,9 +104,9 @@ GO;
 else if(isset($_GET['login']))
 {
 	echo <<<login
-<div class="modal-content">
+<div class="modal-content" style="max-width: 65%; margin: 0 auto;">
             <div class="modal-header">
-                <h5 class="modal-title text-primary" id="exampleModalLabel">Авторизація в системі</h5>
+                <h5 class="modal-title text-dark" id="exampleModalLabel">Авторизація в системі</h5>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
@@ -128,8 +128,8 @@ else if(isset($_GET['login']))
                     </div>
                 </div>
                 <div class="modal-footer justify-content-center">
-                    <i class="fab fa-telegram-plane"></i>
 					<button name="submit" type="submit" class="btn btn-info">
+                        <i class="fas fa-key mr-1"></i>
                     Увійти</button>
 					
                     
@@ -200,93 +200,89 @@ else if ($_GET["data"]=date("d.m.Y") and $_GET["otdel"]!="")
 {
 
 echo <<<vidsutni
-
-
 <form method="post" action="">
-    <table width="800" border="1" cellspacing="0" cellpadding="5">
-        <thead>
-		    <tr>
-			<center>
-               Інформація про відсутніх працівників на робочому місці <? echo date("d.m.Y"); ?> року
-            </center>
-            </tr>
-		
-		
-            <tr>
-                <th scope="col">ПІБ відсутнього працівника</th>
-                <th scope="col">відсутній по дату</th>
-                <th scope="col">Причина відсутності</th>
-                <th scope="col">інша причина (заповнюється лише "інша причина")</th>
-                
-            </tr>
-        </thead>
-        <tbody id="vidsutni">
+
+    <table class="table caption-top">
+
+        <caption>
+            Інформація про відсутніх працівників на робочому місці <? echo date("d.m.Y"); ?> року
+        </caption>
+
+      <thead>
+        <tr>
+          <th scope="col">ПІБ працівника</th>
+          <th scope="col">Період відсутності</th>
+          <th scope="col">Причина відсутності</th>
+          <th scope="col" class="td-inshe"><strong class="text-danger">*</strong>Примітка <small>(за необхідності)</small></th>
+        </tr>
+      </thead>
+          <tbody id="vidsutni">
             <tr>
                 <td>
+                    <input type="text" class="form-control" placeholder="Іван Іванов" required id="fio" name="fio" value="">
+                </td>
+                <td>
+                    <input type="date" class="form-control" style="max-width: 85%;" required id="podate" name="podate">
+                </td>
+                <td>
+                    <label for="otpusk">
+                        <input type="radio" required id="otpusk" name="prichina" value="otpusk">
+                    Щорічна відпустка (основна, додаткова)
+                    </label>
+
+                    <br>
+
+                    <label for="ekzamen">
+                        <input type="radio" required id="ekzamen" name="prichina" value="ekzamen">
+                    Екзамени в учбових закладах
+                    </label>
+
+                    <br>
+
+                    <label for="bezzp">
+                        <input type="radio" required id="bezzp" name="prichina" value="bezzp">
+                    Без збереження заробітньої плати
+                    </label>
+
+                    <br>
+
+                    <label for="nepracezdatn">
+                        <input type="radio" required id="nepracezdatn" name="prichina" value="nepracezdatn">
+                    Тимчасова непрацездатність
+                    </label>
+
+                    <br>
+
+                    <label for="vidriadjenna">
+                        <input type="radio" required id="vidriadjenna" name="prichina" value="vidriadjenna">
+                    У відрядженні
+                    </label>
+
+                    <br>
+
+                    <label for="inshe">
+                        <input type="radio" required id="inshe" name="prichina" value="inshe">
+                    Інша причина (треба пояснити)
+                    </label>
+
+                </td>
+
+                <td class="td-inshe">
                     <label>
-                        <input type="text" required name="fio" value="">
+                        <input type="text" class="form-control" name="inshe" value="">
                     </label>
                 </td>
                 <td>
-                    <label>
-                        <input type="date" required name="podate">
-                        
-                    </label>
-                </td>
-				<td>
-				    <label>
-                        <input type="radio" required name="prichina" value="otpusk">
-                        Щорічна відпустка (основна, додаткова)
-                    </label>
-					<br>
-                    <label>
-                        <input type="radio" required name="prichina" value="ekzamen">
-                        Екзамени в учбових закладах
-                    </label>
-					<br>
-                    <label>
-                        <input type="radio" required name="prichina" value="bezzp">
-                        Без збереження заробітньої плати
-                    </label>
-					<br>
-					<label>
-                        <input type="radio" required name="prichina" value="nepracezdatn">
-                        Тимчасова непрацездатність
-                    </label>
-					<br>
-					<label>
-                        <input type="radio" required name="prichina" value="vidriadjenna">
-                        У відрядженні
-                    </label>
-					<br>
-					<label>
-                        <input type="radio" required name="prichina" value="inshe">
-                        Інша причина (обов'язково заповнити яка саме в наступному полі)
-                    </label>
-                </td>
-                <td>
-                    <label>
-                        <input type="text" name="inshe" value="">
-                    </label>
-                </td>
-				<td>
-                    <button type="button" class="add">+</button>
-                    <button type="button" class="del">-</button>
+                    <button type="button" class="add btn btn-success">+ <i class="fas fa-user" style="pointer-events: none;"></i></button>
+                    <button type="button" class="del btn btn-danger">- <i class="fas fa-user" style="pointer-events: none;"></i></button>
                 </td>
             </tr>
-        </tbody>
+          </tbody>
     </table>
-    <input name="sub" type="submit" value="Працівникі відсутні" style="margin: 10px">
+
+     <input name="sub" type="submit" class="btn btn-primary ml-5" value="Відсутніх немає" style="margin: 10px">
 
 </form>
-
-
-
-
-
-
-
-
 
 <hr/>
 
@@ -348,7 +344,6 @@ var DynamicTable = (function (GLOB) {
 <script>
     new DynamicTable( document.getElementById("vidsutni") );
 </script>
-
 
 vidsutni;
 

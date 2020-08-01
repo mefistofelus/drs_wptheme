@@ -11,7 +11,7 @@
 						<!--Grid column-->
 						<div class="col-md-3 col-12 mb-2">
 							<!-- Card -->
-							<a href="http://www.drs.gov.ua/">
+							<a href="http://www.drs.gov.ua/" target="_blank">
 								<div class="card card-cascade hover-shadow mb-3">
 									
 									<!-- Card image -->
@@ -77,7 +77,7 @@
 							
 							
 							<!-- Card -->
-							<a href="https://mail.drs.gov.ua/owa/#path=/mail">
+							<a href="https://mail.drs.gov.ua/owa/#path=/mail" target="_blank">
 								<div class="card card-cascade hover-shadow mb-3">
 									
 									<!-- Card image -->
@@ -110,7 +110,7 @@
 							
 							
 							<!-- Card -->
-							<a href="http://dc1/category/departament/">
+							<a href="http://dc1/category/departament/" target="_blank">
 								<div class="card card-cascade hover-shadow mb-3">
 									
 									<!-- Card image -->

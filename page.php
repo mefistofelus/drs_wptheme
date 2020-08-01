@@ -27,38 +27,22 @@
             <div class="row wow fadeIn">
                 <!--Grid column-->
                 <div class="col-md-8 mb-4">
-                    <?php echo do_shortcode( '[contact-form-7 id="99" title="ІНФОРМАЦІЯ про відсутніх працівників Відділу інформаційних технологій, захисту інформації та з питань цифрового розвитку   на робочому місці 03.07.2020 року"]' );?>
+                    <?php while ( have_posts() ) : the_post();
+                            the_content();
+                    ?>
+                    <?php endwhile; // end of the loop. ?>
+
                 </div>
                 <!--Grid column-->
                 <!--Grid column-->
-                <div class="col-md-4 mb-4">
-                    <!-- Sticky content -->
-                    <div class="sticky">
+                <div class="col-md-3 mb-4">
                         <!--Section: Dynamic Content Wrapper-->
-                        <section>
-                            <div id="dynamic-content"></div>
-                        </section>
-                        <!--Section: Dynamic Content Wrapper-->
-                        <!--Card-->
-                        <div class="card mb-4">
-                            <div class="card-header">Related articles</div>
-                            <!--Card content-->
-                            <div class="card-body">
-                                <ul class="list-unstyled">
-                                    <li class="media">
-                                        <div class="media-body">
-                                            <a href="">
-                                                <h5 class="mt-0 mb-1 font-weight-bold">List-based media object</h5>
-                                            </a>
-                                            Cras sit amet nibh libero, in gravida nulla (...)
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
+                        <div class="custom">
+                            <?php
+                            if ( function_exists('dynamic_sidebar') )
+                                dynamic_sidebar('page-sidebar');
+                            ?>
                         </div>
-                        <!--/.Card-->
-                    </div>
-                    <!-- Sticky content -->
                 </div>
                 <!--Grid column-->
             </div>

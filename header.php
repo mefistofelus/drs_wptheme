@@ -26,9 +26,8 @@
 			<div class="container-fluid">
 
 				<!-- Brand -->
-				<a class="navbar-brand waves-effect" href="<?php get_home_url(); ?>">
+				<a class="navbar-brand waves-effect" href="<?php get_home_url(); ?>" target="_blank">
 					<strong class="text-primary"><?php bloginfo( 'name'); ?>
-						<i class="fa fa-external-link"></i>
 					</strong>
 				</a>
 
@@ -43,12 +42,12 @@
 					<!-- Left -->
 					<ul class="navbar-nav">
 						<li class="nav-item">
-							<a href="http://www.drs.gov.ua/" class="nav-link" data-toggle="tooltip" data-placement="bottom" title="Сайт ДРС"><i class="fa fa-address-card"></i>
+							<a href="http://www.drs.gov.ua/" class="nav-link" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Сайт ДРС"><i class="fa fa-address-card"></i>
 								<!-- Сайт ДРС -->
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" data-toggle="tooltip" data-placement="bottom" title="Пошта ДРС" href="https://mail.drs.gov.ua/owa/#path=/mail" rel="external"><i class="fa fa-file"></i>
+							<a class="nav-link" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Пошта ДРС" href="https://mail.drs.gov.ua/owa/#path=/mail" rel="external"><i class="fa fa-file"></i>
 								<!-- Пошта ДРС -->
 							</a>
 						</li>
@@ -58,7 +57,7 @@
 							</a>
 						</li>
 						<!-- <li class="nav-item">
-							<a class="nav-link" data-toggle="tooltip" data-placement="bottom" title="4" href="#" OnClick="window.open('#')" rel="external"><i class="fa fa-keyboard-o"></i>
+							<a class="nav-link" data-toggle="tooltip" data-placement="bottom" title="4" href="#" target="_blank" rel="external"><i class="fa fa-keyboard-o"></i>
 
 							</a>
 						</li> -->
@@ -67,7 +66,7 @@
 					<!-- Right -->
 					<ul class="navbar-nav nav-flex-icons ml-auto">
 						<!-- Button trigger modal -->
-						<button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-life-ring mr-2"></i>Допомога!</button>
+						<button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-external-link mr-2"></i>Допомога!</button>
 					</ul>
 
 				</div>

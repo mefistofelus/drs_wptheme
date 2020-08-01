@@ -1,4 +1,11 @@
-<?php get_header(); ?>
+<?php 
+/*
+ * Template name: Відсутні працівники
+ * Template Post Type: post, page
+ */
+
+
+get_header(); ?>
 
 
 <!--Main layout-->
@@ -26,22 +33,8 @@
             <!--Grid row-->
             <div class="row wow fadeIn">
                 <!--Grid column-->
-                <div class="col-md-8 mb-4">
+                <div class="col-md-12 mb-2">
                     <?php get_template_part('template-parts/content-vidsutni'); ?>
-                </div>
-                <!--Grid column-->
-                <!--Grid column-->
-                <div class="col-md-4 mb-4">
-                    <!-- Sticky content -->
-                    <div class="sticky">
-                        <!--Section: Dynamic Content Wrapper-->
-                        <section>
-                            <div id="dynamic-content"></div>
-                        </section>
-                        <!--Section: Dynamic Content Wrapper-->
-                      
-                    </div>
-                    <!-- Sticky content -->
                 </div>
                 <!--Grid column-->
             </div>

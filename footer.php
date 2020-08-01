@@ -8,6 +8,7 @@
     <!-- Copyright -->
 </footer>
 <!--/.Footer-->
+
 <!-- Modal Form-->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
@@ -70,7 +71,6 @@
                     </div>
                 </div>
                 <div class="modal-footer justify-content-center">
-                    <i class="fab fa-telegram-plane"></i>
                     <span type="button" class="text-muted mr-2" data-dismiss="modal">
                         Скасувати
                     </span>
@@ -86,12 +86,4 @@
 <?php wp_footer(); ?>
 </body>
 
-
-<script>
-// Ссылки в новой вкладке:
-		var menuItem = $('li.menu-item a').addClass('menu-link');
-	$('a').not('.menu-link').each(function(){
-		this.target = "_blank";
-	});
-</script>
 </html>

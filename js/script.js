@@ -3,13 +3,12 @@ $(document).ready(function(){
 	// Запускаем метод init, когда документ будет готов:
 	chat.init();
 		
-	// Ссылки в новой вкладке:
-		var menuItem = $('li.menu-item a').addClass('menu-link');
-	$('a').not('.menu-link').each(function(){
-		this.target = "_blank";
-	});
-	
-});
+	// // Ссылки в новой вкладке:
+	// var menuItem = $('li.menu-item a').addClass('menu-link');
+	// 	$('a').not('.menu-link').each(function(){
+	// 		this.target = "_blank";
+	// 	});
+	// });
 
 var chat = {
 	
