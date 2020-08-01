@@ -1,0 +1,56 @@
+/*
+Theme Name: DRS Theme
+Theme URI: https://mdbootstrap.com
+Description: This is outstanding WP theme developed by Vasiliy Manilo on Material Design for Bootstrap 4
+Version: 4.5.5
+Author: Vasiliy Manilo with MDBootstrap.com
+Author URI: https://mdbootstrap.com
+*/
+
+/*CUSTOM STYLES*/
+ul {
+    padding: 0;
+    /* Убираем поля */
+    margin-left: 20px;
+    /* Отступ слева */
+}
+
+a{
+    text-decoration: none;
+}
+
+a.button25 {
+    position: relative;
+    display: inline-block;
+    width: 10em;
+    height: 2.5em;
+    line-height: 2.5em;
+    vertical-align: middle;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 -1px 1px #777;
+    color: #fff;
+    outline: none;
+    border: 2px solid #F64C2B;
+    border-radius: 5px;
+    box-shadow: 0 0 0 60px rgba(0, 0, 0, 0) inset, .1em .1em .2em #800;
+    background: linear-gradient(#FB9575, #F45A38 48%, #EA1502 52%, #F02F17);
+}
+
+a.button25:active {
+    top: .1em;
+    left: .1em;
+    box-shadow: 0 0 0 60px rgba(0, 0, 0, .05) inset;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+body.customize-support{
+    padding-top: 2rem;
+}
+
+body.customize-support nav.navbar{
+    margin-top: 2rem;
+}
