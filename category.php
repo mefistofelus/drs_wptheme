@@ -31,7 +31,7 @@
                     <?php 
                         $infocat = get_the_category();
                         $info = $infocat[0]->cat_ID;
-                        $array = "orderby=date&amp;showposts=10&amp;cat=$info";
+                        $array = "orderby=date&order=ASC&cat=$info&showposts=10";
                         query_posts($array);
 
                         if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
