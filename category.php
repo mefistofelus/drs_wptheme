@@ -57,6 +57,10 @@
                         <?php endwhile; else: ?>
                             Публікацій не знайдено
                         <?php endif; wp_reset_query();?>
+                    
+                        <div class="pagination-block">
+                            <?php if ( function_exists( 'wp_corenavi' ) ) wp_corenavi(); ?>
+                        </div>
                 </div>
                 <!--Grid column-->
                 <!--Grid column-->
