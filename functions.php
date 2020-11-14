@@ -197,7 +197,7 @@ function drs_scripts() {
         // wp_enqueue_style( 'Font_Awesome-css', get_template_directory_uri() . '/css/font-awesome.min.css' );
         wp_enqueue_style( 'Font_Awesome-5-css', 'https://use.fontawesome.com/releases/v5.0.13/css/all.css' );
         wp_enqueue_style( 'MDB', get_template_directory_uri() . '/css/mdb5/mdb.min.css' );
-        wp_enqueue_style( 'custom-old-styles-css', get_template_directory_uri() . '/css/custom-style-old.css' );
+        wp_enqueue_style( 'custom-old-styles-css', get_template_directory_uri() . '/css/custom-style.css' );
         wp_enqueue_style( 'Style', get_template_directory_uri() . '/css/style.css' );
         wp_enqueue_style( 'jScrollPane-css', get_template_directory_uri() . '/js/jScrollPane/jScrollPane.css' );
         wp_enqueue_style( 'chat-css', get_template_directory_uri() . '/css/chat.css' );
