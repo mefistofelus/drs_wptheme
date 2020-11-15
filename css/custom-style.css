@@ -34,3 +34,6 @@
     max-height: 300px;
     overflow: auto;
 }
+.sidebar-fixed{
+    z-index: 1000 !important;
+}

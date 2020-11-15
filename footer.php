@@ -82,6 +82,11 @@
                                         required/>
                                 <label for="validationCustom06" class="form-label">Телефон</label>
                             </div>
+                            <input
+                                        type="hidden"
+                                        name="notification_date"
+                                        class="form-control"
+                                        value="<?php echo date("Y-m-d H:i"); ?>"/>
                         </div>
                 </div>
             </div>
@@ -137,7 +142,10 @@
                                     <th scope="col">Проблема</th>
                                     <th scope="col">E-mail</th>
                                     <th scope="col">Телефон</th>
-                                    <th scope="col">Дія</th>
+                                    <th scope="col">Створено</th>
+                                    <?php  if (current_user_can('edit_dashboard')){
+                                        echo '<th scope="col">Дія</th>';
+                                    } ?>
                                 </tr>
                                 </thead>
                                 <?php get_notifications_list_by_status_new();
@@ -151,15 +159,18 @@
                                         <td class="notification-text"><?php echo $notification_new['notification_text']; ?></td>
                                         <td><?php echo $notification_new['user_email']; ?></td>
                                         <td><?php echo $notification_new['user_phone']; ?></td>
-                                        <td><a href="?upd=<?= $notification_new['id'] ?>" type="submit"
-                                               class="btn btn-success" title="Відмітити виконаним">
-                                                <i class="far fa-check-circle mr-1"></i>
-                                            </a>
-                                            <a href="?del=<?= $notification_new['id'] ?>" type="submit"
-                                               class="btn btn-danger" title="Видалити зі списку">
-                                                <i class="fas fa-minus-circle mr-1"></i>
-                                            </a>
-                                        </td>
+                                        <td><?php echo $notification_new['notification_date']; ?></td>
+                                        <?php  if (current_user_can('edit_dashboard')){?>
+                                            <td><a href="?upd=<?= $notification_new['id'] ?>" type="submit"
+                                                   class="btn btn-success" title="Відмітити виконаним">
+                                                    <i class="far fa-check-circle mr-1"></i>
+                                                </a>
+                                                <a href="?del=<?= $notification_new['id'] ?>" type="submit"
+                                                   class="btn btn-danger" title="Видалити зі списку">
+                                                    <i class="fas fa-minus-circle mr-1"></i>
+                                                </a>
+                                            </td>
+                                        <?php } ?>
                                     </tr>
                                     </tbody>
                                     <?php
@@ -177,7 +188,9 @@
                                     <th scope="col">Проблема</th>
                                     <th scope="col">E-mail</th>
                                     <th scope="col">Телефон</th>
-                                    <th scope="col">Дія</th>
+                                    <?php  if (current_user_can('edit_dashboard')){
+                                        echo '<th scope="col">Дія</th>';
+                                    } ?>
                                 </tr>
                                 </thead>
                                 <?php get_notifications_list_by_status_done();
@@ -191,15 +204,14 @@
                                         <td class="notification-text"><?php echo $notification_done['notification_text']; ?></td>
                                         <td><?php echo $notification_done['user_email']; ?></td>
                                         <td><?php echo $notification_done['user_phone']; ?></td>
-                                        <td><a href="?upd=<?= $notification_done['id'] ?>" type="submit"
-                                               class="btn btn-success" title="Відмітити виконаним">
-                                                <i class="far fa-check-circle mr-1"></i>
-                                            </a>
-                                            <a href="?del=<?= $notification_done['id'] ?>" type="submit"
-                                               class="btn btn-danger" title="Видалити зі списку">
-                                                <i class="fas fa-minus-circle mr-1"></i>
-                                            </a>
-                                        </td>
+                                        <?php  if (current_user_can('edit_dashboard')){?>
+                                            <td>
+                                                <a href="?del=<?= $notification_done['id'] ?>" type="submit"
+                                                   class="btn btn-danger" title="Видалити зі списку">
+                                                    <i class="fas fa-minus-circle mr-1"></i>
+                                                </a>
+                                            </td>
+                                        <?php } ?>
                                     </tr>
                                     </tbody>
                                     <?php
@@ -207,7 +219,7 @@
                                 ?>
                             </table>
                         </div>
-                        <div class="tab-pane" id="messages">
+                        <div class="tab-pane" id="deleted">
                             <table class="table">
                                 <thead>
                                 <tr>
@@ -217,7 +229,9 @@
                                     <th scope="col">Проблема</th>
                                     <th scope="col">E-mail</th>
                                     <th scope="col">Телефон</th>
-                                    <th scope="col">Дія</th>
+                                    <?php  if (current_user_can('edit_dashboard')){
+                                        echo '<th scope="col">Дія</th>';
+                                    } ?>
                                 </tr>
                                 </thead>
                                 <?php get_notifications_list_by_status_deleted();
@@ -231,15 +245,13 @@
                                         <td class="notification-text"><?php echo $notification_deleted['notification_text']; ?></td>
                                         <td><?php echo $notification_deleted['user_email']; ?></td>
                                         <td><?php echo $notification_deleted['user_phone']; ?></td>
-                                        <td><a href="?upd=<?= $notification_deleted['id'] ?>" type="submit"
-                                               class="btn btn-success" title="Відмітити виконаним">
-                                                <i class="far fa-check-circle mr-1"></i>
-                                            </a>
-                                            <a href="?del=<?= $notification_deleted['id'] ?>" type="submit"
-                                               class="btn btn-danger" title="Видалити зі списку">
-                                                <i class="fas fa-minus-circle mr-1"></i>
-                                            </a>
-                                        </td>
+                                        <?php  if (current_user_can('edit_dashboard')){?>
+                                            <td><a href="?upd=<?= $notification_deleted['id'] ?>" type="submit"
+                                                   class="btn btn-success" title="Відмітити виконаним">
+                                                    <i class="far fa-check-circle mr-1"></i>
+                                                </a>
+                                            </td>
+                                        <?php } ?>
                                     </tr>
                                     </tbody>
                                     <?php

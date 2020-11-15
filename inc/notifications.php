@@ -17,6 +17,7 @@ function create_table()
 	notification_status varchar(50) NOT NULL default 'new',
 	user_email varchar(50) NOT NULL default '',
 	user_phone varchar(50) NOT NULL default '',
+	notification_date varchar(30) NOT NULL default '',
 	PRIMARY KEY  (id),
 	KEY user_name (user_name)
 	)
@@ -62,13 +63,15 @@ function add_notification()
             'notification_text' => $_POST['notification_text'],
             'user_email' => $_POST['user_email'],
             'user_phone' => $_POST['user_phone'],
+            'notification_date' => $_POST['notification_date'],
         ),
         array(
             '%s',
             '%s',
             '%s',
             '%s',
-            '%d'
+            '%s',
+            '%s'
         )
     );
 }

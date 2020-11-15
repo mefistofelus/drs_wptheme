@@ -40,7 +40,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
 
                 <!-- Left -->
-                <ul class="navbar-nav">
+                <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
                         <a href="http://www.drs.gov.ua/" class="nav-link" target="_blank" data-toggle="tooltip"
                            data-placement="bottom" title="Сайт ДРС"><i class="fa fa-address-card"></i>
@@ -69,27 +69,22 @@
                 </ul>
                 <?php
                 require_once('inc/notifications.php');
-                if (current_user_can('edit_dashboard') && get_notification_count_by_status_new() > 0) {
+                if (get_notification_count_by_status_new() > 0) {
                     ?>
-                    <span type="button" class="bell-icon m-auto" data-toggle="modal"
+                    <span type="button" class="bell-icon mr-3" data-toggle="modal"
                           data-counter="<?= get_notification_count_by_status_new(); ?>"
                           data-target="#notificationsPopup">
                         <i class="fa fa-bell fa-2x"></i>
                     </span>
                     <?php
-                } else {
-                    ?>
-                    <!-- Right -->
-                    <ul class="navbar-nav nav-flex-icons ml-auto">
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-danger btn-lg" data-toggle="modal"
-                                data-target="#exampleModal"><i class="fa fa-external-link mr-2"></i>Допомога!
-                        </button>
-                    </ul>
-                    <?php
-                }
-                ?>
-
+                } ?>
+                <!-- Right -->
+                <ul class="navbar-nav nav-flex-icons">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-danger btn-lg" data-toggle="modal"
+                            data-target="#exampleModal"><i class="fa fa-external-link mr-2"></i>Допомога!
+                    </button>
+                </ul>
             </div>
 
         </div>
