@@ -10,57 +10,29 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main pt-5 mx-lg-5">
-		<div class="container-fluid mt-3">
+    <main id="primary" class="site-main pt-5 mx-lg-5">
+        <div class="container-fluid mt-3">
 
-			<div class="row">
-				<div class="col-md-12">
-					<section class="error-404 not-found">
-						<header class="page-header">
-							<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'drs' ); ?></h1>
-						</header><!-- .page-header -->
-					
-						<div class="page-content">
-							<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'drs' ); ?></p>
-					
-								<?php
-								get_search_form();
-					
-								the_widget( 'WP_Widget_Recent_Posts' );
-								?>
-					
-								<div class="widget widget_categories">
-									<h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'drs' ); ?></h2>
-									<ul>
-										<?php
-										wp_list_categories(
-											array(
-												'orderby'    => 'count',
-												'order'      => 'DESC',
-												'show_count' => 1,
-												'title_li'   => '',
-												'number'     => 10,
-											)
-										);
-										?>
-									</ul>
-								</div><!-- .widget -->
-					
-								<?php
-								/* translators: %1$s: smiley */
-								$drs_archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'drs' ), convert_smilies( ':)' ) ) . '</p>';
-								the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$drs_archive_content" );
-					
-								the_widget( 'WP_Widget_Tag_Cloud' );
-								?>
-					
-						</div><!-- .page-content -->
-					</section><!-- .error-404 -->
-				</div>
-			</div>
+            <div class="row mt-5">
+                <div class="col-md-10">
+                    <section class="error-404 not-found pt-5">
+                        <header class="masthead d-flex">
+                            <div class="container text-center my-auto">
+                                <h1 class="mb-1 text-success">Ваше повідомлення успішно відправлено!</h1>
+                                <div class="text-success p-4"><i class="fas fa-check-circle fa-5x"></i></div>
+                                <h3 class="mb-5">
+                                    <em>Зачекайте будь ласка, спеціаліст уже працює над Вашою проблемою... </em>
+                                </h3>
+                                <a class="btn btn-primary btn-xl js-scroll-trigger" href="/"><i class="fas fa-hand-point-left mr-1"></i>Повернутися на головну</a>
+                            </div>
+                            <div class="overlay"></div>
+                        </header>
+                    </section><!-- .error-404 -->
+                </div>
+            </div>
 
-		</div>
-	</main><!-- #main -->
+        </div>
+    </main><!-- #main -->
 
 <?php
 get_footer();

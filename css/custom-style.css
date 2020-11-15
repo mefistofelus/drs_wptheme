@@ -23,5 +23,14 @@
     border-radius: 50%;
 }
 #notificationsPopup .modal-dialog{
-    max-width: 50%;
+    max-width: 75%;
+}
+#notificationsPopup .modal-dialog .modal-content{
+    max-height: 700px;
+    overflow: auto;
+}
+.notification-text{
+    max-width: 550px;
+    max-height: 300px;
+    overflow: auto;
 }

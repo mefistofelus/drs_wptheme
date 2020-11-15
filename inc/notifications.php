@@ -13,7 +13,7 @@ function create_table()
 	id  bigint(20) unsigned NOT NULL auto_increment,
 	user_name varchar(50) NOT NULL default '',
 	user_state varchar(50) NOT NULL default '',
-	notification_text longtext NOT NULL default '',
+	notification_text text(300) NOT NULL default 'Dont wanna write anything...',
 	notification_status varchar(50) NOT NULL default 'new',
 	user_email varchar(50) NOT NULL default '',
 	user_phone varchar(50) NOT NULL default '',
@@ -26,6 +26,29 @@ function create_table()
 }
 
 create_table();
+
+// Удаление (смена статуса) уведомления по ссылке с GET параметром
+if (isset($_GET['del'])) {
+    $id = $_GET['del'];
+
+    global $wpdb;
+    $wpdb->update('wp_notifications',
+        array('notification_status' => 'deleted'),
+        array('ID' => $id,)
+    );
+
+}
+
+// Выполнение (смена статуса) уведомления по ссылке с GET параметром
+if (isset($_GET['upd'])) {
+    $id = $_GET['upd'];
+
+    global $wpdb;
+    $wpdb->update('wp_notifications',
+        array('notification_status' => 'done'),
+        array('ID' => $id,)
+    );
+}
 
 // Добавление нового обращения через форму
 function add_notification()
@@ -53,9 +76,33 @@ function add_notification()
 add_notification();
 
 // Получение общего количества обращений
-function get_notification_count()
+function get_notification_count_by_status_new()
 {
     global $wpdb;
-    $notifications_count = $wpdb->get_var("SELECT COUNT(*) FROM `wp_notifications`;");
+    $notifications_count = $wpdb->get_var("SELECT COUNT(*) FROM `wp_notifications` WHERE notification_status = 'new'");
     return $notifications_count;
+}
+
+// Получение списка обращений со статусом "новые"
+function get_notifications_list_by_status_new()
+{
+    global $wpdb;
+    $notifications_list_by_status_new = $wpdb->get_results("SELECT * FROM wp_notifications WHERE notification_status = 'new' ORDER BY id ASC", ARRAY_A);
+    return $notifications_list_by_status_new;
+}
+
+// Получение списка обращений со статусом "выполненные"
+function get_notifications_list_by_status_done()
+{
+    global $wpdb;
+    $notifications_list_by_status_done = $wpdb->get_results("SELECT * FROM wp_notifications WHERE notification_status = 'done' ORDER BY id ASC", ARRAY_A);
+    return $notifications_list_by_status_done;
+}
+
+// Получение списка обращений со статусом "удаленные"
+function get_notifications_list_by_status_deleted()
+{
+    global $wpdb;
+    $notifications_list_by_status_deleted = $wpdb->get_results("SELECT * FROM wp_notifications WHERE notification_status = 'deleted' ORDER BY id ASC", ARRAY_A);
+    return $notifications_list_by_status_deleted;
 }

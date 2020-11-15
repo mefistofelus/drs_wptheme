@@ -69,10 +69,10 @@
                 </ul>
                 <?php
                 require_once('inc/notifications.php');
-                if (current_user_can('edit_dashboard') && get_notification_count() > 0) {
+                if (current_user_can('edit_dashboard') && get_notification_count_by_status_new() > 0) {
                     ?>
                     <span type="button" class="bell-icon m-auto" data-toggle="modal"
-                          data-counter="<?= get_notification_count(); ?>"
+                          data-counter="<?= get_notification_count_by_status_new(); ?>"
                           data-target="#notificationsPopup">
                         <i class="fa fa-bell fa-2x"></i>
                     </span>
