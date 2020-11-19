@@ -156,7 +156,7 @@ ul.list-group{
     border: 1px solid #ccc;
     border-right: 0;
     border-left: 0;
-    border-radius: 0
+    border-radius: 0;
     cursor: pointer;
     transition: .35s;
     color: #323232;
