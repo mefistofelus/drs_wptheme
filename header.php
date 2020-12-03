@@ -67,17 +67,36 @@
                         </a>
                     </li> -->
                 </ul>
-                <?php
-                require_once('inc/notifications.php');
-                if (get_notification_count_by_status_new() > 0) {
-                    ?>
-                    <span type="button" class="bell-icon mr-3" data-toggle="modal"
-                          data-counter="<?= get_notification_count_by_status_new(); ?>"
-                          data-target="#notificationsPopup">
-                        <i class="fa fa-bell fa-2x"></i>
-                    </span>
-                    <?php
-                } ?>
+				
+				
+				
+               <div id="content"></div>
+	
+	<script>
+		function show()
+		{
+			$.ajax({
+				url: "time.php",
+				cache: false,
+				success: function(html){
+					$("#content").html(html);
+				}
+			});
+		}
+	
+		$(document).ready(function(){
+			show();
+			setInterval('show()',1000);
+		});
+
+				
+		</script>
+				
+				
+				
+				
+				
+				
                 <!-- Right -->
                 <ul class="navbar-nav nav-flex-icons">
                     <!-- Button trigger modal -->

@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 <!--Main layout-->
-<main class="pt-5 mx-lg-5">
+<main class="pt-5 mt-4 mx-lg-5">
 	<div class="container-fluid mt-3">
 		<div class="row">
 			<div class="col-md-9">

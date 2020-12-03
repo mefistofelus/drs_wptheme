@@ -1,4 +1,4 @@
-<?
+﻿<?
 // Соединямся с БД
 $link=mysqli_connect("localhost", "root", "root", "vids-login");
 
@@ -55,8 +55,8 @@ register;
 
 
 
+if($_GET['register']=='yes' && isset($_POST['submit']))
 
-if(isset($_POST['submit']))
 {
     $err = [];
 
@@ -76,12 +76,13 @@ if(isset($_POST['submit']))
         $login = $_POST['login'];
 		$otdel = $_POST['otdel'];
 		$kerivnik = $_POST['kerivnik'];
+		$kadry = 0;
 		
 
         // Убераем лишние пробелы и делаем двойное хеширование
         $password = md5(md5(trim($_POST['password'])));
 
-        mysqli_query($link,"INSERT INTO users SET user_login='".$login."', user_otdel='".$otdel."', user_kerivnik='".$kerivnik."', user_password='".$password."'");
+        mysqli_query($link,"INSERT INTO users SET user_login='".$login."', user_otdel='".$otdel."', user_kerivnik='".$kerivnik."', kadry='".$kadry."', user_password='".$password."'");
 		echo <<<GO
 <script type="text/javascript">
 location="?login";
@@ -196,73 +197,242 @@ GO;
 
 
 
-else if ($_GET["data"]=date("d.m.Y") and $_GET["otdel"]!="")
+else if ($_GET["data"]==date("d.m.Y") and $_GET["otdel"]!="")
 {
+$otdel = $_GET["otdel"];
+$data = date("d.m.Y");
 
+
+
+
+
+if ($otdel=="Департамент державної регуляторної політики")
+{
+$dekret = <<<dekret
+<tr>
+                <td>
+                   Гребенюк <required id="fio" name="fio" value="Гребенюк">
+                </td>
+				<td>
+                   2019-01-15<id="zpodate" name="zpodate">
+                </td>
+                <td>
+                   2021-11-21<id="podate" name="podate">
+                </td>
+                <td>
+                    Соціальна відпустка<id="inshe" name="prichina" value="Соціальна відпустка">
+                </td>
+</tr>
+<tr>
+                <td>
+                   Солоп Н.П. <required id="fio" name="fio" value="Солоп Н.П.">
+                </td>
+				<td>
+                   2018-09-21<id="zpodate" name="zpodate">
+                </td>
+                <td>
+                   2021-08-01<id="podate" name="podate">
+                </td>
+                <td>
+                    Соціальна відпустка<id="inshe" name="prichina" value="Соціальна відпустка">
+                </td>
+</tr>
+dekret;
+$kerivnik = $_GET["kerivnik"];
+$inshe = "";	
+$dekret_insert[] = <<<DKR
+fio='Гребенюк', zpodate='2019-01-15', podate='2021-11-21', prichina='Соціальна відпустка', inshe='$inshe', otdel='$otdel', kerivnik='$kerivnik', data='$data'
+DKR;
+$dekret_insert[] = <<<DKR
+fio='Солоп Н.П.', zpodate='2018-09-21', podate='2021-08-01', prichina='Соціальна відпустка', inshe='$inshe', otdel='$otdel', kerivnik='$kerivnik', data='$data'
+DKR;
+}
+else if ($otdel=="Управління оперативного дерегулювання")
+{
+$dekret = <<<dekret
+<tr>
+                <td>
+                   Влах О.Є. <required id="fio" name="fio" value="Влах О.Є.">
+                </td>
+				<td>
+                   2019-04-11<id="zpodate" name="zpodate">
+                </td>
+                <td>
+                   2021-01-05<id="podate" name="podate">
+                </td>
+                <td>
+                    Соціальна відпустка<id="inshe" name="prichina" value="Соціальна відпустка">
+                </td>
+</tr>
+dekret;
+$kerivnik = $_GET["kerivnik"];
+$inshe = "";	
+$dekret_insert[] = <<<DKR
+fio='Влах О.Є.', zpodate='2019-04-11', podate='2021-01-05', prichina='Соціальна відпустка', inshe='$inshe', otdel='$otdel', kerivnik='$kerivnik', data='$data'
+DKR;
+}
+else if ($otdel=="Управління інформаційно-організаційного забезпечення діяльності служби")
+{
+$dekret = <<<dekret
+<tr>
+                <td>
+                   Стучкова О.М. <required id="fio" name="fio" value="Стучкова О.М.">
+                </td>
+				<td>
+                   2018-07-16<id="zpodate" name="zpodate">
+                </td>
+                <td>
+                   2021-05-21<id="podate" name="podate">
+                </td>
+                <td>
+                    Соціальна відпустка<id="inshe" name="prichina" value="Соціальна відпустка">
+                </td>
+</tr>
+dekret;
+$kerivnik = $_GET["kerivnik"];
+$inshe = "";	
+$dekret_insert[] = <<<DKR
+fio='Стучкова О.М.', zpodate='2018-07-16', podate='2021-05-21', prichina='Соціальна відпустка', inshe='$inshe', otdel='$otdel', kerivnik='$kerivnik', data='$data'
+DKR;
+}
+else if ($otdel=="Департамент ліцензування та дозвільної системи")
+{
+$dekret = <<<dekret
+<tr>
+                <td>
+                   Різник Д.І. <required id="fio" name="fio" value="Різник Д.І.">
+                </td>
+				<td>
+                   2019-06-10<id="zpodate" name="zpodate">
+                </td>
+                <td>
+                   2022-04-05<id="podate" name="podate">
+                </td>
+                <td>
+                    Соціальна відпустка<id="inshe" name="prichina" value="Соціальна відпустка">
+                </td>
+</tr>
+<tr>
+                <td>
+                   Омельченко С.П. <required id="fio" name="fio" value="Омельченко С.П.">
+                </td>
+				<td>
+                   2020-07-01<id="zpodate" name="zpodate">
+                </td>
+                <td>
+                   2023-04-28<id="podate" name="podate">
+                </td>
+                <td>
+                    Соціальна відпустка<id="inshe" name="prichina" value="Соціальна відпустка">
+                </td>
+</tr>
+dekret;
+$kerivnik = $_GET["kerivnik"];
+$inshe = "";	
+$dekret_insert[] = <<<DKR
+fio='Різник Д.І.', zpodate='2019-06-10', podate='2022-04-05', prichina='Соціальна відпустка', inshe='$inshe', otdel='$otdel', kerivnik='$kerivnik', data='$data'
+DKR;
+$dekret_insert[] = <<<DKR
+fio='Омельченко С.П.', zpodate='2020-07-01', podate='2023-04-28', prichina='Соціальна відпустка', inshe='$inshe', otdel='$otdel', kerivnik='$kerivnik', data='$data'
+DKR;
+}
+
+
+
+
+
+//$kadry = mysqli_query($link, "SELECT kadry FROM users WHERE user_otdel='".$otdel."'");
+
+
+// Вытаскиваем из БД запись, проверяем кадры или нет
+    $query = mysqli_query($link,"SELECT user_otdel FROM users WHERE user_otdel='".mysqli_real_escape_string($link,$otdel)."' LIMIT 1");
+    $kadry = mysqli_fetch_assoc($query);
+	
+
+
+if ($kadry ==1)
+{
+	$ssilkaget =  "<input onclick=\"document.location='http://dc1/pereglyad-informaczi%D1%97-pro-vidsutnih/'\" class=\"btn btn-primary ml-5\" value=\"Перегляд інформації\" style=\"margin: 10px\">";
+}
+else
+{
+	$ssilkaget ="";
+}
+$ssilkaget =  "<input onclick=\"document.location='http://dc1/pereglyad-informaczi%D1%97-pro-vidsutnih/'\" class=\"btn btn-primary ml-5\" value=\"Перегляд інформації\" style=\"margin: 10px\">";
 echo <<<vidsutni
 <form method="post" action="">
 
     <table class="table caption-top">
 
-        <caption>
-            Інформація про відсутніх працівників на робочому місці <? echo date("d.m.Y"); ?> року
-        </caption>
+        
 
       <thead>
         <tr>
           <th scope="col">ПІБ працівника</th>
-          <th scope="col">Період відсутності</th>
+		  <th scope="col">Період відсутності з</th>
+          <th scope="col">Період відсутності по</th>
           <th scope="col">Причина відсутності</th>
           <th scope="col" class="td-inshe"><strong class="text-danger">*</strong>Примітка <small>(за необхідності)</small></th>
         </tr>
+		$dekret
       </thead>
           <tbody id="vidsutni">
             <tr>
                 <td>
                     <input type="text" class="form-control" placeholder="Іван Іванов" required id="fio" name="fio" value="">
                 </td>
+				<td>
+                    <input type="date" class="form-control" style="max-width: 85%;" required id="zpodate" name="zpodate">
+                </td>
                 <td>
                     <input type="date" class="form-control" style="max-width: 85%;" required id="podate" name="podate">
                 </td>
                 <td>
                     <label for="otpusk">
-                        <input type="radio" required id="otpusk" name="prichina" value="otpusk">
+                        <input type="radio" required id="otpusk" name="prichina" value="Щорічна відпустка (основна, додаткова)">
                     Щорічна відпустка (основна, додаткова)
+                    </label>
+
+                    <br>
+					
+					<label for="distance">
+                        <input type="radio" required id="distance" name="prichina" value="Дистанційна робота">
+                    Дистанційна робота
                     </label>
 
                     <br>
 
                     <label for="ekzamen">
-                        <input type="radio" required id="ekzamen" name="prichina" value="ekzamen">
-                    Екзамени в учбових закладах
+                        <input type="radio" required id="ekzamen" name="prichina" value="Відпустка у зв'язку з навчанням">
+                    Відпустка у зв'язку з навчанням
                     </label>
 
                     <br>
 
                     <label for="bezzp">
-                        <input type="radio" required id="bezzp" name="prichina" value="bezzp">
-                    Без збереження заробітньої плати
+                        <input type="radio" required id="bezzp" name="prichina" value="Відпустка без збереження заробітньої плати">
+                    Відпустка без збереження заробітньої плати
                     </label>
 
                     <br>
 
                     <label for="nepracezdatn">
-                        <input type="radio" required id="nepracezdatn" name="prichina" value="nepracezdatn">
+                        <input type="radio" required id="nepracezdatn" name="prichina" value="Тимчасова непрацездатність">
                     Тимчасова непрацездатність
                     </label>
 
                     <br>
 
                     <label for="vidriadjenna">
-                        <input type="radio" required id="vidriadjenna" name="prichina" value="vidriadjenna">
+                        <input type="radio" required id="vidriadjenna" name="prichina" value="У відрядженні">
                     У відрядженні
                     </label>
 
                     <br>
 
                     <label for="inshe">
-                        <input type="radio" required id="inshe" name="prichina" value="inshe">
-                    Інша причина (треба пояснити)
+                        <input type="radio" required id="inshe" name="prichina" value="Інша причина">
+                    Інша причина (необхідно зазначити)
                     </label>
 
                 </td>
@@ -274,13 +444,15 @@ echo <<<vidsutni
                 </td>
                 <td>
                     <button type="button" class="add btn btn-success">+ <i class="fas fa-user" style="pointer-events: none;"></i></button>
-                    <button type="button" class="del btn btn-danger">- <i class="fas fa-user" style="pointer-events: none;"></i></button>
+                    <button type="button" class="del btn btn-danger">-  <i class="fas fa-user" style="pointer-events: none;"></i></button>
                 </td>
             </tr>
           </tbody>
     </table>
 
-     <input name="sub" type="submit" class="btn btn-primary ml-5" value="Відсутніх немає" style="margin: 10px">
+     <input name="sub" type="submit" class="btn btn-primary ml-5" value="Записати інформацію про відсутніх" style="margin: 10px">
+	 <input onclick="document.location='?otdel=$otdel&data=$data&prisutni=vsi'" class="btn btn-primary ml-5" value="Всі присутні" style="margin: 10px">
+	 $ssilkaget
 
 </form>
 
@@ -346,6 +518,149 @@ var DynamicTable = (function (GLOB) {
 </script>
 
 vidsutni;
+
+
+if ($_GET["data"]=date("d.m.Y") and $_GET["otdel"]!="")
+{
+
+
+$otdel = $_GET["otdel"];
+$data = date("d.m.Y");
+$time = date("H:i", strtotime('+3 hour'));
+$time0 = date("11:00");
+
+
+if (strtotime($time)<strtotime($time0))
+{
+
+$podano=0;	
+	$query1 ="SELECT * FROM zapis WHERE user_data='".$data."'";
+ 
+$result = mysqli_query($link, $query1) or die("Ошибка " . mysqli_error($link)); 
+if($result)
+{
+    $rows = mysqli_num_rows($result); // количество полученных строк
+     
+    for ($i = 0 ; $i < $rows ; ++$i)
+    {
+        $row = mysqli_fetch_row($result);
+        
+            for ($j = 1 ; $j < 2 ; ++$j) if($row[$j]==$otdel){$podano=1;}
+        
+    }
+    
+     
+    // очищаем результат
+    mysqli_free_result($result);
+}
+ 
+	
+
+if($podano < 1)	 
+{
+
+    
+ if ($_GET["prisutni"]=="vsi") 
+ {
+
+		   //Добавляем декретчиков
+if (isset($dekret_insert))	{	   
+foreach ($dekret_insert as $postdekret) {
+	mysqli_query($link,"INSERT INTO vidsutni SET $postdekret");
+}
+}
+
+//--------
+
+mysqli_query($link,"INSERT INTO zapis SET user_login='".$otdel."', user_time='".$time."', user_data='".$data."'");
+echo "Інформація успішно записана";
+ }
+ else
+
+ {
+  
+if (!empty($_POST))
+{
+
+   
+
+           foreach ($_POST as $key => $value) 
+		   {
+            if (gettype($key) === "integer") 
+			{
+ 						
+
+$kerivnik = $_GET["kerivnik"];
+$fio = $value['fio']; 
+$podate = $value['podate'];
+$zpodate = $value['zpodate'];
+$prichina = $value['prichina']; 
+$inshe = $value['inshe'];
+
+
+			
+// Отправка информации о посещении
+
+// Соединямся с БД
+
+mysqli_query($link,"INSERT INTO vidsutni SET fio='".$fio."', zpodate='".$zpodate."', podate='".$podate."', prichina='".$prichina."', inshe='".$inshe."', otdel='".$otdel."', kerivnik='".$kerivnik."', data='".$data."'");
+
+
+
+						
+						
+						
+			}
+                       
+                    
+            
+		   }
+
+		   //Добавляем декретчиков
+if (isset($dekret_insert))	{	   
+foreach ($dekret_insert as $postdekret) {
+	mysqli_query($link,"INSERT INTO vidsutni SET $postdekret");
+}
+}
+
+//--------
+
+mysqli_query($link,"INSERT INTO zapis SET user_login='".$otdel."', user_time='".$time."', user_data='".$data."'");
+
+//Сообщение о том что все успешно
+echo "Інформація успішно записана";
+
+
+
+
+}
+}
+
+}
+
+ if($podano > 0)	 
+{
+echo "Інформація про відсутніх працівників вашого підрозділу вже була надана сьогодні";	
+}
+
+}
+else
+{
+
+echo <<<redtext
+<style>
+   .colortext {
+     color: red; /* Красный цвет выделения */
+   }
+  </style>
+  
+   <span class="colortext">Інформація про відсутніх працівників подається до 10:00 поточного робочого дня. Якщо ви не встигли подати довідку - негайно зверніться до Відділу управління персоналом!</span>
+redtext;
+ 
+}
+	
+}
+
 
 
 }

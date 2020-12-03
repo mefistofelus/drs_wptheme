@@ -6,7 +6,7 @@
     <div class="text-center p-3 text-light" style="background-color: rgba(0, 0, 0, 0.2);">
         © <?php echo date('Y'); ?> - <a class="text-light" href="http://www.drs.gov.ua/" target="_blank">Державна
             регуляторна служба України</a>
-        | Відділ інформаційних технологій та цифрового розвитку
+        | Відділ інформаційних технологій, захисту інформації та з питань цифрового розвитку, цифрової трансформації і цифровізації
     </div>
     <!-- Copyright -->
 </footer>

@@ -4,7 +4,7 @@ while ( have_posts() ) {
 the_post();
 ?>
 <!--Main layout-->
-<main>
+<main class="mt-5 pt-5">
     <!-- Intro -->
     <div class="card card-intro blue-gradient mb-3">
         <div class="card-body text-light rgba-black-light text-center pt-5 pb-4 mt-3">

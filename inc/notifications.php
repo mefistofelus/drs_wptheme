@@ -11,7 +11,7 @@ function create_table()
 
     $sql = "CREATE TABLE {$table_name} (
 	id  bigint(20) unsigned NOT NULL auto_increment,
-	user_name varchar(50) NOT NULL default '',
+	user_name text(300) NOT NULL default '',
 	user_state text(300) NOT NULL default '',
 	notification_text text(300) NOT NULL default 'Dont wanna write anything...',
 	notification_status varchar(50) NOT NULL default 'new',
