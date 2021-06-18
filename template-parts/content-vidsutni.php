@@ -223,66 +223,26 @@ $dekret = <<<dekret
                     Соціальна відпустка<id="inshe" name="prichina" value="Соціальна відпустка">
                 </td>
 </tr>
-<tr>
-                <td>
-                   Солоп Н.П. <required id="fio" name="fio" value="Солоп Н.П.">
-                </td>
-				<td>
-                   2018-09-21<id="zpodate" name="zpodate">
-                </td>
-                <td>
-                   2021-08-01<id="podate" name="podate">
-                </td>
-                <td>
-                    Соціальна відпустка<id="inshe" name="prichina" value="Соціальна відпустка">
-                </td>
-</tr>
 dekret;
 $kerivnik = $_GET["kerivnik"];
 $inshe = "";	
 $dekret_insert[] = <<<DKR
 fio='Гребенюк', zpodate='2019-01-15', podate='2021-11-21', prichina='Соціальна відпустка', inshe='$inshe', otdel='$otdel', kerivnik='$kerivnik', data='$data'
 DKR;
-$dekret_insert[] = <<<DKR
-fio='Солоп Н.П.', zpodate='2018-09-21', podate='2021-08-01', prichina='Соціальна відпустка', inshe='$inshe', otdel='$otdel', kerivnik='$kerivnik', data='$data'
-DKR;
 }
-else if ($otdel=="Управління оперативного дерегулювання")
-{
-$dekret = <<<dekret
-<tr>
-                <td>
-                   Влах О.Є. <required id="fio" name="fio" value="Влах О.Є.">
-                </td>
-				<td>
-                   2019-04-11<id="zpodate" name="zpodate">
-                </td>
-                <td>
-                   2021-01-05<id="podate" name="podate">
-                </td>
-                <td>
-                    Соціальна відпустка<id="inshe" name="prichina" value="Соціальна відпустка">
-                </td>
-</tr>
-dekret;
-$kerivnik = $_GET["kerivnik"];
-$inshe = "";	
-$dekret_insert[] = <<<DKR
-fio='Влах О.Є.', zpodate='2019-04-11', podate='2021-01-05', prichina='Соціальна відпустка', inshe='$inshe', otdel='$otdel', kerivnik='$kerivnik', data='$data'
-DKR;
-}
+
 else if ($otdel=="Управління інформаційно-організаційного забезпечення діяльності служби")
 {
 $dekret = <<<dekret
 <tr>
                 <td>
-                   Стучкова О.М. <required id="fio" name="fio" value="Стучкова О.М.">
+                   Скорик Ж.В. <required id="fio" name="fio" value="Скорик Ж.В.">
                 </td>
 				<td>
-                   2018-07-16<id="zpodate" name="zpodate">
+                   2021-04-07<id="zpodate" name="zpodate">
                 </td>
                 <td>
-                   2021-05-21<id="podate" name="podate">
+                   2024-02-05<id="podate" name="podate">
                 </td>
                 <td>
                     Соціальна відпустка<id="inshe" name="prichina" value="Соціальна відпустка">
@@ -292,7 +252,7 @@ dekret;
 $kerivnik = $_GET["kerivnik"];
 $inshe = "";	
 $dekret_insert[] = <<<DKR
-fio='Стучкова О.М.', zpodate='2018-07-16', podate='2021-05-21', prichina='Соціальна відпустка', inshe='$inshe', otdel='$otdel', kerivnik='$kerivnik', data='$data'
+fio='Скорик Ж.В.', zpodate='2021-04-07', podate='2024-02-05', prichina='Соціальна відпустка', inshe='$inshe', otdel='$otdel', kerivnik='$kerivnik', data='$data'
 DKR;
 }
 else if ($otdel=="Департамент ліцензування та дозвільної системи")
@@ -336,7 +296,30 @@ $dekret_insert[] = <<<DKR
 fio='Омельченко С.П.', zpodate='2020-07-01', podate='2023-04-28', prichina='Соціальна відпустка', inshe='$inshe', otdel='$otdel', kerivnik='$kerivnik', data='$data'
 DKR;
 }
-
+else if ($otdel=="Відділ інформаційних технологій, захисту інформації та з питань цифрового розвитку")
+{
+$dekret = <<<dekret
+<tr>
+                <td>
+                   Стучкова О.М. <required id="fio" name="fio" value="Стучкова О.М.">
+                </td>
+				<td>
+                   2018-07-16<id="zpodate" name="zpodate">
+                </td>
+                <td>
+                   2021-05-21<id="podate" name="podate">
+                </td>
+                <td>
+                    Соціальна відпустка<id="inshe" name="prichina" value="Соціальна відпустка">
+                </td>
+</tr>
+dekret;
+$kerivnik = $_GET["kerivnik"];
+$inshe = "";	
+$dekret_insert[] = <<<DKR
+fio='Стучкова О.М.', zpodate='2018-07-16', podate='2021-05-21', prichina='Соціальна відпустка', inshe='$inshe', otdel='$otdel', kerivnik='$kerivnik', data='$data'
+DKR;
+}
 
 
 
@@ -352,13 +335,13 @@ DKR;
 
 if ($kadry ==1)
 {
-	$ssilkaget =  "<input onclick=\"document.location='http://dc1/pereglyad-informaczi%D1%97-pro-vidsutnih/'\" class=\"btn btn-primary ml-5\" value=\"Перегляд інформації\" style=\"margin: 10px\">";
+	$ssilkaget =  "<input onclick=\"document.location='http://site/pereglyad-informaczi%D1%97-pro-vidsutnih/'\" class=\"btn btn-primary ml-5\" value=\"Перегляд інформації\" style=\"margin: 10px\">";
 }
 else
 {
 	$ssilkaget ="";
 }
-$ssilkaget =  "<input onclick=\"document.location='http://dc1/pereglyad-informaczi%D1%97-pro-vidsutnih/'\" class=\"btn btn-primary ml-5\" value=\"Перегляд інформації\" style=\"margin: 10px\">";
+$ssilkaget =  "<input onclick=\"document.location='http://site/pereglyad-informaczi%D1%97-pro-vidsutnih/'\" class=\"btn btn-primary ml-5\" value=\"Перегляд інформації\" style=\"margin: 10px\">";
 echo <<<vidsutni
 <form method="post" action="">
 
@@ -527,7 +510,7 @@ if ($_GET["data"]=date("d.m.Y") and $_GET["otdel"]!="")
 $otdel = $_GET["otdel"];
 $data = date("d.m.Y");
 $time = date("H:i", strtotime('+3 hour'));
-$time0 = date("11:00");
+$time0 = date("12:00");
 
 
 if (strtotime($time)<strtotime($time0))

@@ -86,7 +86,7 @@
                                         type="hidden"
                                         name="notification_date"
                                         class="form-control"
-                                        value="<?php echo date("Y-m-d H:i"); ?>"/>
+                                        value="<?php echo date("Y-m-d H:i", strtotime('+3 hour')); ?>"/>
                         </div>
                 </div>
             </div>

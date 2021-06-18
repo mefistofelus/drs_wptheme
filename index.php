@@ -110,7 +110,7 @@
 							
 							
 							<!-- Card -->
-							<a href="http://dc1/category/departament/" target="_blank">
+							<a href="http://site/category/departament/" target="_blank">
 								<div class="card card-cascade hover-shadow mb-3">
 									
 									<!-- Card image -->
