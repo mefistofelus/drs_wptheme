@@ -13,7 +13,8 @@ function create_table()
 	id  bigint(20) unsigned NOT NULL auto_increment,
 	user_name varchar(50) NOT NULL default '',
 	user_state text(300) NOT NULL default '',
-	notification_text text(300) NOT NULL default 'Dont wanna write anything...',
+	notification_text text(300) NOT NULL default 'false',
+	notification_text_maintenance text(300) NOT NULL default '',
 	notification_status varchar(50) NOT NULL default 'new',
 	user_email varchar(50) NOT NULL default '',
 	user_phone varchar(50) NOT NULL default '',
@@ -61,6 +62,7 @@ function add_notification()
             'user_name' => $_POST['user_name'],
             'user_state' => $_POST['user_state'],
             'notification_text' => $_POST['notification_text'],
+            'notification_text_maintenance' => $_POST['notification_text_maintenance'],
             'user_email' => $_POST['user_email'],
             'user_phone' => $_POST['user_phone'],
             'notification_date' => $_POST['notification_date'],
@@ -86,6 +88,22 @@ function get_notification_count_by_status_new()
     return $notifications_count;
 }
 
+// Получение количества новых обращений в IT-отдел
+function get_notification_count_for_it()
+{
+    global $wpdb;
+    $notifications_count_it = $wpdb->get_var("SELECT COUNT(*) FROM `wp_notifications` WHERE notification_text != '' AND notification_status = 'new'");
+    return $notifications_count_it;
+}
+
+// Получение общего количества обращений в MAINTENANCE-отдел
+function get_notification_count_for_maintenance()
+{
+    global $wpdb;
+    $notifications_count_maintenance = $wpdb->get_var("SELECT COUNT(*) FROM `wp_notifications` WHERE notification_text_maintenance != '' AND notification_status = 'new'");
+    return $notifications_count_maintenance;
+}
+
 // Получение списка обращений со статусом "новые"
 function get_notifications_list_by_status_new()
 {
@@ -98,7 +116,7 @@ function get_notifications_list_by_status_new()
 function get_notifications_list_by_status_done()
 {
     global $wpdb;
-    $notifications_list_by_status_done = $wpdb->get_results("SELECT * FROM wp_notifications WHERE notification_status = 'done' ORDER BY id ASC", ARRAY_A);
+    $notifications_list_by_status_done = $wpdb->get_results("SELECT * FROM wp_notifications WHERE notification_status = 'done' ORDER BY id DESC ", ARRAY_A);
     return $notifications_list_by_status_done;
 }
 
@@ -106,6 +124,22 @@ function get_notifications_list_by_status_done()
 function get_notifications_list_by_status_deleted()
 {
     global $wpdb;
-    $notifications_list_by_status_deleted = $wpdb->get_results("SELECT * FROM wp_notifications WHERE notification_status = 'deleted' ORDER BY id ASC", ARRAY_A);
+    $notifications_list_by_status_deleted = $wpdb->get_results("SELECT * FROM wp_notifications WHERE notification_status = 'deleted' ORDER BY id DESC ", ARRAY_A);
     return $notifications_list_by_status_deleted;
+}
+
+// Получение списка обращений из колонки "notification_text_maintenance"
+function get_notifications_list_by_text_it()
+{
+    global $wpdb;
+    $notifications_list_by_text_it = $wpdb->get_results("SELECT * FROM wp_notifications WHERE notification_text != '' AND notification_status = 'new' ORDER BY id ASC", ARRAY_A);
+    return $notifications_list_by_text_it;
+}
+
+// Получение списка обращений из колонки "notification_text_maintenance"
+function get_notifications_list_by_text_maintenance()
+{
+    global $wpdb;
+    $notifications_list_by_text_maintenance = $wpdb->get_results("SELECT * FROM wp_notifications WHERE notification_text_maintenance != '' AND notification_status = 'new' ORDER BY id ASC", ARRAY_A);
+    return $notifications_list_by_text_maintenance;
 }
